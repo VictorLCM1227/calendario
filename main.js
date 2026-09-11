@@ -28,6 +28,25 @@ const updateCalendar = () => {
     for(let i = 1; i <= totalDays; i++) {
         const date = new Date(currentYear, currentMonth, i)
         const activeClass = date.toDateString() === new Date().toDateString() ? 'active' : ''
-        datesHTML += `<div class=""></div>`
+        datesHTML += `<div class="date ${activeClass}">${i}</div>`
     }
+
+    for(let i; i <= 7 - lastDayIndex; i++) {
+        const nextDate = new Date(currentYear, currentMonth + 1, i)
+        datesHTML += `<div class="date inactive">${nextDate.getDate()}</div>`
+    }
+
+    datesElement.innerHTML = datesHTML
 }
+
+prevBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate,getMonth() - 1)
+    updateCalendar()
+})
+
+nextBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate,getMonth() + 1)
+    updateCalendar()
+})
+
+updateCalendar()

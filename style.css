@@ -34,6 +34,13 @@ body {
     padding: 10px;
 }
 
+.monthYear {
+    text-align: center;
+    font-weight: 600;
+    width: 150px;
+    
+}
+
 .header button {
     display: flex;
     align-items: center;
@@ -57,4 +64,39 @@ body {
     padding: 5px;
     color: #999FA6;
     font-weight: 500;
+}
+
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: 0.2s;
+}
+
+.date:hover,
+.date:active {
+    background: #ff5869;
+    color: #fff;
+}
+
+.date.inactive {
+    color: #d2d2d2
+}
+
+.date.inactive:hover {
+    color: #fff;
 }
